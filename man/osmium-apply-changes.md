@@ -32,6 +32,31 @@ This commands reads its input file(s) only once and writes its output file
 in one go so it can be streamed, ie. it can read from STDIN and write to
 STDOUT.
 
+When updating a normal OSM data file (not a history file and without the
+**\--locations-on-ways** option) from PBF to PBF format, blocks of the input
+file which are not touched by any change are copied to the output file as
+they are, without decoding and re-encoding them. This is much faster,
+especially for large files and small change sets. The output contains the
+same objects as without this optimization, but the blocks in the file can
+be different, so the output file is usually not byte-identical. Copied
+blocks keep the compression used in the input file, so no blocks are copied
+if the output format options **pbf_compression** or
+**pbf_compression_level** are given, even if they are set to the default.
+No blocks are copied either if the output format options would change the
+encoding of the data, ie. if **pbf_dense_nodes** is set to false,
+**add_metadata** is set to anything but all metadata, or
+**locations_on_ways** is set (see
+[**osmium-file-formats**(5)](osmium-file-formats.html)). Use the
+**\--no-passthrough** option to disable this. Use **\--verbose** to see how
+many blocks were copied.
+
+The input file must be sorted (by type and ID) for this. A block is copied
+without even decoding it if no change is between its first object and the
+first object of the next block. The order of the objects in such a block is
+not checked, so if the input file is not sorted or contains the same object
+more than once, the output can differ from the output with
+**\--no-passthrough**.
+
 
 # OPTIONS
 
@@ -48,6 +73,10 @@ STDOUT.
     to update files created by the **osmium-add-locations-to-ways**. See
     there for details on the format. Can not be used together with the
     **\--with-history/-H** option.
+
+\--no-passthrough
+:   Do not copy unchanged blocks from the input file to the output file,
+    decode and re-encode all data instead (see above).
 
 \--redact
 :   Redact (patch) history files. Change files can contain any version of

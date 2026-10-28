@@ -8,6 +8,11 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- The `apply-changes` command copies PBF blocks that are not touched by any
+  change unchanged from the input to the output file. This is much faster
+  for large files and small change sets. Use the new `--no-passthrough`
+  option to disable this.
+
 ### Changed
 
 ### Fixed

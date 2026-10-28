@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version="0.6" generator="test">
+  <node id="1" version="2" timestamp="2020-01-01T00:00:00Z" lat="45" lon="-90">
+    <tag k="file" v="1"/>
+  </node>
+  <node id="2" version="2" timestamp="2020-01-01T00:00:00Z" lat="45" lon="90">
+    <tag k="file" v="1"/>
+  </node>
+  <way id="1" version="1">
+    <nd ref="1"/>
+    <nd ref="2"/>
+  </way>
+  <relation id="1" version="1">
+    <member type="way" ref="1" role=""/>
+  </relation>
+</osm>

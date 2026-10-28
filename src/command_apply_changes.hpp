@@ -41,11 +41,17 @@ class CommandApplyChanges : public CommandWithSingleOSMInput, public with_osm_ou
     bool m_with_history = false;
     bool m_locations_on_ways = false;
     bool m_redact = false;
+    bool m_passthrough = true;
 
     void apply_changes_and_write(osmium::ObjectPointerCollection &objects,
                                  const std::vector<osmium::memory::Buffer> &changes,
                                  osmium::io::Reader &reader,
                                  osmium::io::Writer &writer);
+
+    const char* why_no_passthrough() const;
+
+    void apply_changes_with_passthrough(osmium::ObjectPointerCollection &objects,
+                                        osmium::io::Writer &writer);
 
 public:
 

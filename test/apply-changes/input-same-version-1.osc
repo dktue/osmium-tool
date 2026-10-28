@@ -1,0 +1,10 @@
+<osmChange version="0.6">
+    <modify>
+        <node id="1" version="2" timestamp="2020-01-01T00:00:00Z" lon="-90" lat="45">
+            <tag k="file" v="1"/>
+        </node>
+        <node id="2" version="2" timestamp="2020-01-01T00:00:00Z" lon="90" lat="45">
+            <tag k="file" v="1"/>
+        </node>
+    </modify>
+</osmChange>
