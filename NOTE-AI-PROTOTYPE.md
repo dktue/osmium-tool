@@ -3,7 +3,19 @@
 This branch is an experimental prototype. It is **not** an upstream pull request.
 It was developed with the help of an AI coding assistant (Claude). The upstream
 project does not accept pull requests with AI content, so this code lives only
-in this fork, as a proof of concept for the idea discussed in the upstream issue.
+in this fork, as a proof of concept for the idea discussed in
+[osmcode/osmium-tool#319](https://github.com/osmcode/osmium-tool/issues/319).
+
+## Upstream
+
+We would love to see this feature in upstream osmium-tool and libosmium. If the
+maintainers are interested, we are happy to help in whatever way they prefer:
+testing on full-planet updates, a series of small hand-written changes, or this
+branch as a reference for their own implementation.
+
+This fork is not an alternative to osmium and will not be maintained as one:
+no releases, no packages. For everything else, please use and report issues
+against upstream osmium-tool and libosmium.
 
 ## What it does
 
